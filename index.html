@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./style.css" />
+  <title>Weather Dashboard</title>
+</head>
+
+<body class="container">
+  
+  <header class="hero">
+    <h1 class="title ">Weather Dashboard</h1>
+  </header>
+
+
+<main class="row">
+
+  <div class="col-md-4">
+
+      <div class="card">
+        <h2 class="card-header ">Search for a City:</h2>
+        <form id="search-form">
+          <input name="cityname" id="cityname" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">Search</button>
+        </form>
+      </div>
+
+    <div class="cities" id="cities">
+      <il id="city"></il>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+      
+    <div class="today container">
+    <div class="row h3 main-subtitle"> Today's Weather</div>
+    <div class="row weather" id="today">
+    </div>
+    </div>
+  
+    <div class="forecast container">
+    <div class="row h3 main-subtitle"> 5-Day Forecast</div>
+    <div class="row" id="forecast">
+     
+    
+    </div>
+    </div>
+    </div>
+  </div>
+
+</main>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
