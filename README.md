@@ -9,6 +9,8 @@ This is a dashboard that displays the current weather and five-day forecast weat
 
 ## Website
 
+https://jilijiang.github.io/weather-dashboard/
+
 
 ## Contribution
 
