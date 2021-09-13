@@ -67,9 +67,9 @@ const currentWeather = function (cityName) {
           document.querySelector("#today").innerHTML = template;
 
           const UVElement = document.querySelector("#UVSpan");
-          if (data1.current.uvi < 2) {
+          if (data1.current.uvi <= 2) {
             UVElement.className = "low";
-          } else if (data1.current.uvi > 2 && data1.current.uvi < 7) {
+          } else if (data1.current.uvi > 2 && data1.current.uvi <= 7) {
             UVElement.className = "medium";
           } else {
             UVElement.className = "high";
