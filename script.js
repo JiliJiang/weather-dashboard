@@ -35,6 +35,7 @@ const currentWeather = function (cityName) {
           console.log("uvWeather: ", data1);
           console.log("uv:", data1.current.uvi);
           console.log("type", typeof data1.current.uvi);
+
           const template =
             "<h2 class='subtitle col-md-6'>" +
             data.name +
@@ -61,14 +62,18 @@ const currentWeather = function (cityName) {
             data.main.humidity +
             "  %" +
             "</li>" +
-            "<li class='uv'>UV Index:  " +
-            "<span>" +
-            data1.current.uvi +
-            "</span>" +
-            "</li>" +
-            "</ul>";
+            `<li class='uv'> UV Index: <span id='UVSpan'> ${data1.current.uvi} </span> </li>`;
 
           document.querySelector("#today").innerHTML = template;
+
+          const UVElement = document.querySelector("#UVSpan");
+          if (data1.current.uvi < 2) {
+            UVElement.className = "low";
+          } else if (data1.current.uvi > 2 && data1.current.uvi < 7) {
+            UVElement.className = "medium";
+          } else {
+            UVElement.className = "high";
+          }
         });
     });
 };
@@ -140,8 +145,6 @@ const showCity = function () {
   }
   document.querySelector("#cities").innerHTML = cityEl;
 };
-
-
 
 //show previous search
 showCity();

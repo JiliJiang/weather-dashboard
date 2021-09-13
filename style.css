@@ -135,7 +135,7 @@ h2
   margin-right:0;
   font-size: 22px;
   font-weight: bold;
-  padding-left: 60px;
+  padding-left: 10px;
   padding-top:5px;
   width: 90%;
   text-align: right;
@@ -157,7 +157,7 @@ h2
 }
 
 .uv span {
-  background-color: rgb(4, 99, 99);
+  
   color: white;
   font-family: Arial;
   width: 50%;
@@ -165,6 +165,18 @@ h2
   padding-left: 15px;
   padding-right: 15px;
   
+}
+
+.high{
+  background-color: rgb(211, 15, 15);
+}
+
+.medium{
+  background-color: rgba(255, 166, 0, 0.897);
+}
+
+.low{
+  background-color: rgb(78, 228, 78);
 }
 
 /*FORECAST WEATHER*/
