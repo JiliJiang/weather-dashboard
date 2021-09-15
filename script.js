@@ -126,35 +126,39 @@ const forecastWeather = function (cityName) {
     });
 };
 
+
+//added function to prevent duplication in local storage
+
 const storeCity = function () {
-  cities = JSON.stringify(citiesNew);
-  localStorage.setItem("cities", cities);
+  if (cities.indexOf(cityName) === -1 || cities ===null)
+  {cities.push(cityName);
+  cities = JSON.stringify(cities);
+  localStorage.setItem("cities", cities);}
+  
 };
 
 const showCity = function () {
-  const cities = JSON.parse(localStorage.getItem("cities"));
+  cities = JSON.parse(localStorage.getItem("cities"));
   if (cities === null) {
-    citiesNew = [];
-  } else {
-    citiesNew = cities;
-  }
-  console.log("cities", citiesNew);
+    cities = [];
+  } 
+  
   let cityEl = "";
-  for (var i = 0; i < citiesNew.length; i++) {
-    cityEl += `<il class="city" id="${i}"> ${citiesNew[i]} </il>`;
+  for (var i = 0; i < cities.length; i++) {
+    cityEl += `<il class="city" id="${i}"> ${cities[i]} </il>`;
   }
   document.querySelector("#cities").innerHTML = cityEl;
 };
 
-//show previous search
+
 showCity();
 
-// retrieve previous search
+//retrieve previous search upon click
 document.querySelector("#cities").addEventListener("click", function (event) {
   event.preventDefault();
   let k = event.target.id;
   console.log("k", k);
-  let cityName = citiesNew[k];
+  let cityName = cities[k];
   currentWeather(cityName);
   forecastWeather(cityName);
 });
@@ -164,16 +168,16 @@ document.querySelector("#search-form").addEventListener("submit", function (e) {
   e.preventDefault();
 
   // get user input
-  const cityName = document.querySelector("#cityname").value;
-
-  // store city name
-
-  citiesNew.push(cityName);
+  // added alert if user input is null
+  cityName = document.querySelector("#cityname").value;
+  if (cityName===null || cityName ==="")
+  {alert("Please input a city name!")}
+  else{
+  // added function to store and show city name without reload
   storeCity();
-
+  showCity();
   // get current weather and show data
   currentWeather(cityName);
-
   // get forecast data and show
-  forecastWeather(cityName);
+  forecastWeather(cityName);}
 });
